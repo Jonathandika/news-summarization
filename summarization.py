@@ -9,7 +9,7 @@ openai.api_key = "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"
 ## STREAMLIT APP
 
 st.title('Headline Summarization')
-st.subheader("Upload your file in csv format")
+st.subheader("Upload your file in Excel format (.xlsx)")
 st.text("Format Example:")
 
 headlines = {
@@ -201,18 +201,18 @@ def short_summary(text: str) -> str:
 
     return response_text
 
-uploaded_file = st.file_uploader("Upload your headlines in CSV format here", type=['csv'])
+uploaded_file = st.file_uploader("Upload your headlines in Excel format here", type=['csv'])
 
 if st.button("Summarize Headlines"):
     if uploaded_file is None or COMPANY_NAME == "":
         if uploaded_file is None:
-            st.error("Please upload a CSV file")
+            st.error("Please upload an Excel file")
         if COMPANY_NAME == "":
             st.error("Please enter a company name")
 
     else:
         try:
-            df = pd.read_csv(uploaded_file)
+            df = pd.read_excel(uploaded_file)
             df = df.drop_duplicates(subset=['Headline'])
 
             st.text("Successfully uploaded headlines")

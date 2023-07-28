@@ -201,7 +201,7 @@ def short_summary(text: str) -> str:
 
     return response_text
 
-uploaded_file = st.file_uploader("Upload your headlines in Excel format here", type=['csv'])
+uploaded_file = st.file_uploader("Upload your headlines in Excel format here", type=['xlsx'])
 
 if st.button("Summarize Headlines"):
     if uploaded_file is None or COMPANY_NAME == "":

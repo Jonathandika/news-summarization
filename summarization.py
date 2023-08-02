@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import openai
 
-openai.api_key = "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"
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 
 ## STREAMLIT APP
